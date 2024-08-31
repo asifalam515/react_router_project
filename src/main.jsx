@@ -6,13 +6,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Blogs from "./pages/Blogs.jsx";
 import BooksMarks from "./pages/BooksMarks.jsx";
+import MainLayOut from "./layouts/MainLayOut.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <MainLayOut></MainLayOut>,
   },
   {
     path: "/blogs/",
+    loader: () => fetch("https://dev.to/api/articles?per_page=20&top=7"),
     element: <Blogs></Blogs>,
   },
   {
