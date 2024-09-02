@@ -7,23 +7,13 @@ import Home from "./pages/Home.jsx";
 import Blogs from "./pages/Blogs.jsx";
 import BooksMarks from "./pages/BooksMarks.jsx";
 import MainLayOut from "./layouts/MainLayOut.jsx";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayOut></MainLayOut>,
-  },
-  {
-    path: "/blogs/",
-    loader: () => fetch("https://dev.to/api/articles?per_page=20&top=7"),
-    element: <Blogs></Blogs>,
-  },
-  {
-    path: "/bookmarks/",
-    element: <BooksMarks></BooksMarks>,
-  },
-]);
+import BlogDetails from "./pages/BlogDetails.jsx";
+import { router } from "./routes/Routes.jsx";
+import toast, { Toaster } from "react-hot-toast";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
+    <Toaster></Toaster>
   </StrictMode>
 );
